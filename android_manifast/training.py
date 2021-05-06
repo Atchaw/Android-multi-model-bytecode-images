@@ -1,4 +1,4 @@
-import accuracy
+from accuracy import calculate_accuracy
 
 # check if CUDA is available
 train_on_gpu = torch.cuda.is_available()
@@ -24,7 +24,7 @@ def train(model, iterator, optimizer, criterion):
         # calculate the batch loss
         loss = criterion(output, target)
         # calculate accuracy
-        acc = accuracy.calculate_accuracy(output, target)
+        acc = calculate_accuracy(output, target)
         # backward pass: compute gradient of the loss with respect to model parameters
         loss.backward()
         # perform a single optimization step (parameter update)
