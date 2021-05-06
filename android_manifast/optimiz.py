@@ -6,6 +6,6 @@ def criterion():
     # specify loss function (categorical cross-entropy)
     return nn.NLLLoss()
 
-def optimizer(learningRate, weightDecay ):
+def getOptimizer(learningRate, weightDecay):
     # specify optimizer
     return optim.Adam(model.parameters(), lr=learningRate, weight_decay=weightDecay)
