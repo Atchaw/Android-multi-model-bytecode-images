@@ -1,5 +1,8 @@
 import accuracy
 
+# check if CUDA is available
+train_on_gpu = torch.cuda.is_available()
+
 #define our training loop.
 def train(model, iterator, optimizer, criterion):
     
