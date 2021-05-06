@@ -1,5 +1,7 @@
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
+import torch.utils.data as data
+
 
 def getData(data_dir, batch_size):
 
