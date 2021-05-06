@@ -34,7 +34,7 @@ def main(argv):
         criterion = criterion.cuda()
 
     train_loader, valid_loader = getData(argv[2],int(argv[3]))
-    optimizer = getOptimizer(float(argv[4]),float(argv[]))
+    optimizer = getOptimizer(float(argv[4]),float(argv[5]))
 
     # track change in validation loss
     best_valid_loss = float('inf')
@@ -73,4 +73,4 @@ def main(argv):
     print(f'Total Time: {total_hours}h {total_mins}m {total_secs}s')
 
 if __name__== "__main__":
-    main(sys.argv[1:])
+    main(sys.argv)
