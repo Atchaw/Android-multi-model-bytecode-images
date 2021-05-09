@@ -15,7 +15,8 @@ transform = transforms.Compose([
 def getData(data_dir, batch_size):
     #load data from file
     train_data = datasets.ImageFolder(data_dir + '/train', transform=transform)
-    test_data = datasets.ImageFolder(data_dir + '/test', transform=transform)
+    val_data = datasets.ImageFolder(data_dir + '/val', transform=transform)
+    
 
     # prepare data loaders
     train_loader = data.DataLoader(train_data, batch_size=batch_size, shuffle=True)
@@ -25,7 +26,7 @@ def getData(data_dir, batch_size):
 
 def getDataTest(data_dir, batch_size):
     #load data from file
-    val_data = datasets.ImageFolder(data_dir + '/val', transform=transform)
+    test_data = datasets.ImageFolder(data_dir + '/test', transform=transform)
 
     # prepare data loaders
     test_loader = data.DataLoader(test_data, batch_size=batch_size)

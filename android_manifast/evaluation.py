@@ -1,4 +1,6 @@
+import torch
 from accuracy import calculate_accuracy
+
 
 # check if CUDA is available
 train_on_gpu = torch.cuda.is_available()
@@ -18,9 +20,7 @@ def evaluate(model, iterator, criterion):
             # move tensors to GPU if CUDA is available
             if train_on_gpu:
               data, target = data.cuda(), target.cuda()
-        
-            # clear the gradients of all optimized variables
-            optimizer.zero_grad()
+              
             # forward pass: compute predicted outputs by passing inputs to the model
             output = model(data)
             # calculate the batch loss

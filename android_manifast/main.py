@@ -1,9 +1,12 @@
+import torch
+import torch.nn as nn
+
 import sys
 import time
 
 from training import train
 from evaluation import evaluate
-from optimiz import getOptimizer, criterion
+from optimiz import getOptimizer
 from calculateTime import epoch_time, total_time
 
 from model import Net
@@ -18,9 +21,9 @@ def main(argv):
     # number of epochs to train the model
     EPOCHS = int(argv[1])
 
-    print("*"*50)
-    print('                   START THE ANDEOID MANIFEST PART')
-    print("*"*50)
+    print("*"*90)
+    print('                            START THE ANDEOID MANIFEST PART')
+    print("*"*90)
     # create a complete CNN
     model = Net()
     print(model)
@@ -31,6 +34,9 @@ def main(argv):
     # move tensors and criterion to GPU if CUDA is available
     if train_on_gpu:
         model = model.cuda()
+
+    criterion =  nn.NLLLoss()
+    if train_on_gpu:
         criterion = criterion.cuda()
 
     train_loader, valid_loader = getData(argv[2],int(argv[3]))
@@ -39,7 +45,7 @@ def main(argv):
     # track change in validation loss
     best_valid_loss = float('inf')
 
-    print("~"*50)
+    print("~"*90)
 
     total_start_time = time.monotonic()
     for epoch in range(EPOCHS):
@@ -68,7 +74,7 @@ def main(argv):
 
     total_end_time = time.monotonic()
 
-    print("~"*50)
+    print("~"*90)
     total_hours, total_mins, total_secs = total_time(total_start_time, total_end_time)
     print(f'Total Time: {total_hours}h {total_mins}m {total_secs}s')
 
