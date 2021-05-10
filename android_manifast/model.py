@@ -33,23 +33,23 @@ class Net(nn.Module):
 
       self.linear_layers = nn.Sequential(
           # Defining a Linear layer 
-          nn.Linear(5*5*32, 40),
-          nn.BatchNorm1d(40),
+          nn.Linear(5*5*32, 64),
+          nn.BatchNorm1d(64),
           nn.ReLU(inplace=True),
 
           #Defining a Dropout
           nn.Dropout(0.5),
 
           # Defining a Linear layer 
-          nn.Linear(40, 40),
-          nn.BatchNorm1d(40),
+          nn.Linear(64, 64),
+          nn.BatchNorm1d(64),
           nn.ReLU(inplace=True),
 
           #Defining a Dropout
           nn.Dropout(0.25),
 
           # Defining another Linear layer 
-          nn.Linear(40, 2),
+          nn.Linear(64, 2),
           nn.LogSoftmax(dim=1),
       )
 

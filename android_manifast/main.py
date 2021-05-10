@@ -64,7 +64,7 @@ def main(argv):
         epoch_mins, epoch_secs = epoch_time(start_time, end_time)
 
 
-        print(f'Epoch: {epoch+1:03}/{EPOCHS} | Epoch Time: {epoch_mins}m {epoch_secs}s')
+        print(f'Epoch: {epoch+1}/{EPOCHS} | Epoch Time: {epoch_mins}m {epoch_secs}s')
         print(f'\tTrain Loss: {train_loss:.3f} | Train Acc: {train_acc*100:.2f}%')
         print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc*100:.2f}%')
 
