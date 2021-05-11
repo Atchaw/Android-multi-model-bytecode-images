@@ -22,7 +22,7 @@ def main(argv):
     EPOCHS = int(argv[1])
 
     print("*"*90)
-    print('                            START THE ANDEOID MANIFEST PART')
+    print('                            START THE ANDROID MANIFEST PART')
     print("*"*90)
     # create a complete CNN
     model = Net()
